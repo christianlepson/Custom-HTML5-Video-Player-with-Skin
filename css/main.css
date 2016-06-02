@@ -1,0 +1,149 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+.clearfix:after {
+    content:" ";
+    display:block;
+    clear:both;
+}
+
+
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+
+/* ---- Layout Containers ---- */
+#video-container {
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+#video-container, #caption-container {
+	width:100%;
+	max-width: 800px;
+	margin: 0 auto 40px;
+}
+
+#caption-container {
+	padding: 0 20px;
+	font-size: 1.2em;
+}
+
+
+/* ---- Page Elements ---- */
+
+#video-container video{
+	width:100%;
+	margin: 0 auto;
+	max-width: 800px;
+	background: black;
+}
+
+#controls-container {
+	display: block;
+	width: 100%;
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	background: rgba(0,0,0,.1);
+}
+
+#progress-bar {
+	z-index: 1;
+	margin: 10px auto;
+	width: 95%;
+	height: 4px;
+	background-color: rgba(215,215,215,.3);
+	border-radius: 5px;
+	position: relative;
+	top: 0;
+}
+
+#progress-buffered {
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0%;
+	border-radius: 5px;
+	background: rgb(215, 215, 215);
+	height: 5px;
+}
+
+#progress-played {
+	z-index: 3;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0%;
+	border-radius: 5px;
+	background: #ff9900;
+	height: 5px;
+
+}
+
+#controls {
+	position: relative;
+	margin: 10px auto;
+	padding:0px 7px;
+	display: none;
+}
+
+#controls button {
+	outline: none;
+	border: none;
+	padding: 0 15px;
+}
+
+#controls-flex {
+	width: 100%;
+	height: 35px;
+	display: flex;
+	align-items: center;
+}
+
+#play-pause {
+	display: block;
+	width: 22px;
+	height: 26px;
+	background: url('../icons/play-icon.png') no-repeat;
+}
+
+#fullscreen {
+	display: block;
+	width: 22px;
+	height: 22px;
+	background: url('../icons/fullscreen-icon.png') no-repeat;
+}
+
+#volume {
+	display: block;
+	width: 22px;
+	height: 22px;
+	background: url('../icons/volume-on-icon.png') no-repeat;
+	margin-left: auto;
+}
+
+#time-display {
+	display: inline-block;
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin: 0 0 0 10px;
+}
+
+.highlight {
+	color: #ff9900;
+}
