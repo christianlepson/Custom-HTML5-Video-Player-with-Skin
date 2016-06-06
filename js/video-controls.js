@@ -95,8 +95,20 @@ playButton.addEventListener('click', togglePlayPause);
 volumeButton.addEventListener('click', toggleVolume);
 fullscreenButton.addEventListener('click', toggleFullScreen);
 
-// When video is playable
-video.addEventListener('canplay', function() {
+// Switch Pause button to Play when video ends
+video.addEventListener('ended', function() {
+	playButton.style.background = "url('icons/play-icon.png') no-repeat";
+});
+
+// When video metadata is available (Chrome, Safari)
+video.addEventListener('loadedmetadata', initiateControls);
+
+// When video metadata is available (Firefox)
+if (video.readyState >= 2) {
+      initiateControls();
+ }
+
+function initiateControls() {
 	console.log(video.duration);
 	function updateTime() {
 		var playbackTime = formatTime(video.currentTime);
@@ -153,10 +165,6 @@ video.addEventListener('canplay', function() {
 			}
 		});
 	}
-	// Switch Pause button to Play when video ends
-	video.addEventListener('ended', function() {
-		playButton.style.background = "url('icons/play-icon.png') no-repeat";
-	});
 
 	// When playback time changes, change the video display time and 'Played' Bar
 	video.addEventListener('timeupdate', function() {
@@ -172,7 +180,7 @@ video.addEventListener('canplay', function() {
 
 
 
-});
+}
 	
 
 
